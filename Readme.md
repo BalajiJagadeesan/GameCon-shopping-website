@@ -9,15 +9,15 @@ User:
 can view and buy the products
 
 ## TECHNOLOGY
-PHP5
-MySQL using PDO
-Bootstrap 
-Password Hash lib for password hashing
+PHP5,
+MySQL using PDO,
+Bootstrap,
+Password Hash- lib for password hashing,
 
 ###  Key Features
-Session Implementation and authentication
-Separate menu for discounted items
-Separate carts for users
-Material UX Design
-Separation of access control based on user login
-Server side validation 
+Session Implementation and authentication,
+Separate menu for discounted items,
+Separate carts for users,
+Material UX Design,
+Separation of access control based on user login,
+Server side validation.
