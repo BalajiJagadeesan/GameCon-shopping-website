@@ -1,0 +1,80 @@
+-- Adminer 4.3.0 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP DATABASE IF EXISTS `productdb`;
+CREATE DATABASE `productdb`;
+USE `productdb`;
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart` (
+  `customer_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) DEFAULT '0',
+  PRIMARY KEY (`customer_id`,`product_id`),
+  UNIQUE KEY `customer_id` (`customer_id`,`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `cart` (`customer_id`, `product_id`, `quantity`) VALUES
+(4,	1,	1),
+(4,	6,	1);
+
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(30) NOT NULL,
+  `customer_email` varchar(30) NOT NULL,
+  `customer_password` varchar(100) NOT NULL,
+  `flag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`customer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_email`, `customer_password`, `flag`) VALUES
+(1,	'Admin',	'admin@gamecon.com',	'$2a$08$mpWD2iLjuohbTXa4Us0iC.A4b/CUaNXpTmTCt6ZDOTJ0RCqT19dMW',	1),
+(2,	'test_user',	'test_user@gmail.com',	'$2a$08$CooEP8z5gpIrmjAkSwAt..Jx2lolkkAG/ZRvxVSEGMWYTa8BTOpyW',	0);
+
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(30) NOT NULL,
+  `product_description` text,
+  `product_quantity` int(11) NOT NULL,
+  `product_price` float(5,2) NOT NULL DEFAULT '0.00',
+  `product_discount` int(11) NOT NULL DEFAULT '0',
+  `product_image` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`product_id`),
+  UNIQUE KEY `product_id` (`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `product_quantity`, `product_price`, `product_discount`, `product_image`) VALUES
+(1,	'Xbox One',	'Xbox One 500GB Bundle with Xbox Kinect and 1 Xbox  One controller',	31,	499.99,	30,	'http://localhost:80/project1/assests/img/product/1.jpg'),
+(2,	'PS4',	'PS4 500 GB Call of Duty Bundle with PS4 controller and call duty game',	32,	249.99,	5,	'http://localhost:80/project1/assests/img/product/2.jpg'),
+(3,	'Nintendo Switch',	'Nintendo Switch Console with Joy-Con - 32 GB - Gray',	30,	494.99,	5,	'http://localhost:80/project1/assests/img/product/3.jpg'),
+(4,	'Horizon:Zero Dawn | PS4',	'PS4 Exclusive | Action role-playing game | Guerrilla Games',	51,	59.99,	5,	'http://localhost:80/project1/assests/img/product/4.jpg'),
+(5,	'Fifa 17 | PC',	'FIFA 17 is a sports video game in the FIFA series, released by EA games',	50,	59.99,	5,	'http://localhost:80/project1/assests/img/product/5.jpg'),
+(6,	'FIFA 17 | PS4',	'FIFA 17 is a sports video game in the FIFA series, released by EA games',	149,	59.99,	0,	'http://localhost:80/project1/assests/img/product/6.jpg'),
+(7,	'Uncharted 4 : A Thief\'s End',	'Action | Adventure | PS4 Exclusive | Naughty Dogs',	50,	59.99,	0,	'http://localhost:80/project1/assests/img/product/7.jpg'),
+(8,	'Zelda : Breath of the Wild',	'Action | Adventure | Nintendo Switch | 19th release of Zelda series',	53,	62.99,	0,	'http://localhost:80/project1/assests/img/product/8.jpg'),
+(9,	'Mass Effect: Andromeda',	'Action | Role-Playing | PC | EA Games | Bioware',	50,	69.99,	0,	'http://localhost:80/project1/assests/img/product/9.jpg'),
+(10,	'Oxygen Not Included | PC',	'Space Colony | Survival | Simulation | Klei Entertainment | Alpha',	50,	19.99,	0,	'http://localhost:80/project1/assests/img/product/10.jpg'),
+(11,	'Don\'t Starve Together | PC',	'Multiplayer Expansion Pack for Don\'t Starve | Klei Entertainment',	50,	19.99,	0,	'http://localhost:80/project1/assests/img/product/11.jpg'),
+(12,	'Don\'t Starve | PC',	'Action | Adventure | Survival | Klei Entertainment |',	25,	29.99,	0,	'http://localhost:80/project1/assests/img/product/12.jpg'),
+(13,	'No Man\'s Sky | PC',	'Action | Adventure | Survival | Hello Games | Indie Developer',	200,	49.99,	0,	'http://localhost:80/project1/assests/img/product/13.jpg'),
+(14,	'Ghost Recon Wildlands',	'Action-Adventure | Role Playing | Shooter | Co-op | Ubisoft |',	50,	79.99,	0,	'http://localhost:80/project1/assests/img/product/14.jpg');
+
+DROP TABLE IF EXISTS `session_table`;
+CREATE TABLE `session_table` (
+  `customer_id` int(11) NOT NULL,
+  `sessionID` varchar(50) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`sessionID`),
+  KEY `customer_id` (`customer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+INSERT INTO `session_table` (`customer_id`, `sessionID`, `time`) VALUES
+(1,	'ahr6qv3ot3a9kcg3mcjmcu1bm0',	'2017-04-04 15:11:21');
+
+-- 2017-07-11 18:44:45

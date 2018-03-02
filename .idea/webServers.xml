@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="20f4d90b-99d7-4c3b-bc57-39e986272710" name="ssh@kelvin" url="http://kelvin.ist.rit.edu/~bxj9142/">
+        <fileTransfer host="kelvin.ist.rit.edu" port="22" rootFolder="/home/bxj9142/Sites/" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
