@@ -1,5 +1,6 @@
 # GAMECON - SHOPPING APPLICATION
 >**The code is only PHP5 compatabile**
+
 Sample shopping application to buy games and consoles.
 
 Admin:
